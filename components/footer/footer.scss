@@ -1,0 +1,251 @@
+@import '_partials';
+
+.footer {
+  @include box--padded;
+  @include spacing(margin-top, sparse);
+  align-self: stretch;
+  background: $gray-80;
+
+  @include bp(m-large) {
+    padding: 0;
+  }
+
+  .l--offset > div {
+    display: flex;
+
+    @include bp(none m-large) {
+      flex-direction: column;
+    }
+
+    @include bp(m-large) {
+      align-items: center;
+      flex-direction: row;
+    }
+  }
+
+  .menu a:not(:last-of-type) {
+    width: 20px;
+  }
+
+  .menu a {
+    text-decoration: none;
+    transition: all $duration $easing;
+    mask-repeat: no-repeat;
+    -webkit-mask-position-y: center;
+
+    @include bp(m-large) {
+      display: block;
+    }
+  }
+}
+
+.l--page-minimal + .footer {
+  margin-top: 0;
+}
+
+// Footer Menu (Primary)
+.menu--footer-menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+
+  @include bp(none medium) {
+    flex-direction: row;
+  }
+
+  @include bp(none m-large) {
+    margin-bottom: 1rem;
+  }
+
+  @include bp(medium) {
+    flex-direction: row;
+  }
+
+  @include bp(m-large) {
+    margin: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+
+    @include bp(m-large) {
+      margin-left: 0;
+      margin-right: 1.5rem;
+    }
+  }
+
+  a {
+    background-color: transparent;
+    color: $clr-secondary-dark;
+
+    @include bp(none m-large) {
+      display: block;
+      padding: 0;
+    }
+
+    @include bp(m-large) {
+      display: inline;
+      padding: 0 0;
+    }
+  }
+}
+
+// CSS for the copyright - only affects Intercept Pantheon Upstream
+#block-intercept-profile-copyright {
+  @include bp(m-large) {
+    padding: 30px 0;
+  }
+}
+
+#block-footermenu {
+  order: 1;
+}
+
+// Secondary Menu
+#block-footermenusecondary {
+  order: 5;
+
+  @include bp(m-large) {
+    margin-left: 0.5rem;
+    order: initial;
+  }
+}
+
+// Copyright
+#block-copyrightblock {
+  order: 6;
+  @include bp(x-large) {
+    order: 2;
+    text-align: center;
+  }
+
+  // Privacy Policy
+  a {
+    text-decoration: none;
+  }
+}
+
+#block-gtranslate,
+#block-gtranslate--2 {
+  margin: 0 auto 10px 0;
+  order: 3;
+  @include bp(x-large) {
+    margin: 5px auto;
+  }
+}
+
+// Footer Menu (Social)
+#block-socialmediamenu {
+  margin-bottom: 1rem;
+  order: 4;
+
+  @include bp(small) {
+  }
+
+  @include bp(m-large) {
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+
+.menu--social-media-menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0.5rem 0;
+  padding: 0;
+
+  @include bp(m-large) {
+    margin: 0;
+  }
+
+  @include bp(large) {
+    li {
+      margin-right: 0.5em;
+    }
+    li:first-of-type {
+      width: 25px;
+      margin-left: 1em;
+    }
+
+    li:not(:last-of-type):not(:first-of-type) {
+      width: 35px;
+    }
+
+    li:last-of-type {
+      margin-left: 1rem;
+    }
+  }
+
+  a {
+    @include fs(x-small);
+    background-color: $clr-primary;
+    color: $white;
+    font-weight: bold;
+    display: block;
+    padding: 0.5rem;
+
+    @include bp(small) {
+      padding: 1rem 1.5rem;
+    }
+  }
+
+  // Facebook
+  [href*='facebook.com'] {
+    mask: url('/themes/contrib/intercept_base/images/icons/facebook.svg');
+  }
+
+  // Twitter
+  [href*='twitter.com'] {
+    mask: url('/themes/contrib/intercept_base/images/icons/twitter.svg');
+  }
+
+  // Instagram
+  [href*='instagram.com'] {
+    mask: url('/themes/contrib/intercept_base/images/icons/instagram.svg');
+  }
+
+  // Youtube
+  [href*='youtube.com'] {
+    mask: url('/themes/contrib/intercept_base/images/icons/youtube.svg');
+  }
+
+  [href*='facebook.com'],
+  [href*='twitter.com'],
+  [href*='instagram.com'],
+  [href*='linkedin.com'],
+  [href*='youtube.com'] {
+    background-color: #51832f;
+    background-repeat: no-repeat;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    width: rem(32px);
+    color: #000;
+
+    @include bp(small) {
+      width: rem(50px);
+    }
+
+    &:hover {
+      background-color: #4c752c;
+    }
+  }
+
+  // LinkedIn (needs to be last because it's a bg-image and not masked)
+  [href*='linkedin.com'] {
+    background-image: url('/themes/contrib/intercept_base/images/icons/linkedin.svg'); // if you make this a mask like the rest it breaks in the sharing section of the event details content header
+    background-color: transparent;
+    background-position: center;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
