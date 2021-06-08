@@ -1,5 +1,5 @@
 {
-  "name": "drupal/intercept_base",
+  "name": "aten_cobadger/intercept_base",
   "type": "drupal-theme",
   "description": "Drupal Intercept Base theme.",
   "keywords": [
@@ -16,5 +16,11 @@
     "drupal/components": "^3.0@beta",
     "drupal/twig_field_value": "^1.1",
     "drupal/twig_tweak": "^2.1"
+  },
+  "repositories": {
+    "drupal": {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
   }
 }
